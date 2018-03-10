@@ -1,0 +1,144 @@
+/** To-do:
+prevent overlap of nav and board 
+**/
+body {
+    margin: 0;
+    padding: 0;
+    background-color: wheat;
+}
+
+nav {
+    text-align: center;
+    background-color: burlywood;
+    width: 250px;
+    height: 500px;
+    position: absolute;
+    margin: 50px 20px;
+    padding: 15px 5px;
+    border: 5px outset saddlebrown;
+}
+
+#newGame, #rotation, #animation, #possibleMoves {
+    background-color: rosybrown;
+    color: bisque;
+    text-shadow: black 1px 1px 1px;
+    box-shadow: black 1px 1px 1px;
+    border-radius: 2px;
+    margin: 5px;
+    padding: 5px 10px;
+}
+#newGame {
+    font-size: 20px;
+}
+#rotation, #animation, #possibleMoves {
+    font-size: 15px;
+}
+#newGame:hover, #rotation:hover, #animation:hover, #possibleMoves:hover {
+    border-style: inset;
+    box-shadow: black -1px -1px 1px;
+}
+
+@keyframes blackRotate{
+    from {transform:rotate(0deg);}
+    to {transform:rotate(180deg);}
+}
+@keyframes whiteRotate{
+    from {transform:rotate(180deg);}
+    to {transform:rotate(0deg);}
+}
+@keyframes blackRotateBoard{
+    from {transform:rotate(360deg);}
+    to {transform:rotate(180deg);}
+}
+@keyframes whiteRotateBoard{
+    from {transform:rotate(180deg);}
+    to {transform:rotate(360deg);}
+}
+
+#board {
+    position: absolute;
+    width: 100%;
+    height: 850px;
+}
+table {
+    margin: 30px auto 0;
+    background-color: lightgrey;
+    border: 5px outset saddlebrown;
+    box-shadow: black 1px 1px 2px;
+}
+.cell {
+    width: 75px;
+    height: 75px;
+    background-image: url("images/piecesSpritesheet.png");
+    background-repeat: no-repeat;
+    background-position: 75px 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+.blackTurn {
+    transform: rotate(180deg);
+}
+.blackBoardTurn {
+    animation: blackRotateBoard 4s;
+}
+.blackPieceTurn {
+    animation: blackRotate 4s;
+}
+
+.whiteTurn{
+    transform:rotate(0deg);
+}
+.whiteBoardTurn {
+    animation: whiteRotateBoard 4s;
+}
+.whitePieceTurn {
+    animation: whiteRotate 4s;
+}
+
+.even, .odd, .selected {
+    width: 63px;
+    height: 63px;
+    border-width: 5px;
+    position: relative;
+}
+.even {
+    background-color: white;
+    border-style: solid;
+    border-color: white;
+}
+.odd {
+    background-color: black;
+    border-style: solid;
+    border-color: black;
+}
+.selected {
+    border-style: outset;
+    border-color: red;
+}
+
+#turnIndicator {
+    border: 2px outset black;
+    background-color: bisque;
+    position: relative;
+    margin: 20px auto;
+    line-height: 0;
+}
+
+#promotion, #messageArea{
+    text-align: center;
+    color: white;
+    text-shadow: black 1px 1px;
+}
+#screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.25;
+    top: 0;
+    left: 0;
+}
